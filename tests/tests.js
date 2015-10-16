@@ -1,29 +1,4 @@
-var expect = chai.expect,
-  should = chai.should();
-  
-describe("Conversor de Temperatura", function() {
-  var barra_;
-  beforeEach(function() {
-    barra_ = sinon.barra_.create();
-    barra_.stub(window.console, "log");
-    barra_.stub(window.console, "error");
-  });
-  
-  afterEach(function() {
-    barra_.restore();
-  });
-  
-  describe("Constructor", function() {
-    
-    it("Función temperatura", function() {
-        var temperatura = new Temperatura();
-        expect(temperatura.tempValue).to.equal(0);
-    });
-  });
-  
-});
-/**
- * var assert = chai.assert;
+var assert = chai.assert;
 
 suite('temperature', function() {
     test('Calcular función', function()
@@ -83,4 +58,3 @@ suite('temperature', function() {
       sinon.assert.calledWith(spy, sinon.match.has("89.6 Fahrenheit", salida.innerHTML));
     });
 });
-*/

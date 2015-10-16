@@ -7,22 +7,16 @@
     <link rel="stylesheet" href="mocha.css" />
   </head>
   <body>
-    <input id="convert" class="u-full-width" type="text" autofocus oninput="convertir();" placeholder="Introduzca un valor" style="display:none">
-    <span id="converted" style="display:none"></span>
-    
     <div id="mocha"></div>
     <div id="messages"></div>
     <div id="fixtures"></div>
-    <input id="original" placeholder="32F" size="50">
-    <span class="output" id="salida"></span>
-
+    <script src="../node_modules/mocha/mocha.js"></script>
     <script src="chai.js"></script>
-    <script src="mocha.js"></script>
     <script src="sinon-1.17.1.js"></script>
     <script src="blanket.js"
-        data-cover-adapter="mocha-blanket.js"></script>
-    <script src="../js/temperature.js"></script>
-    <script>mocha.setup('tdd')</script>
+          data-cover-adapter="mocha-blanket.js"></script>
+    <script src="../js/temperature.js" data-cover></script>
+    <script>mocha.setup('tdd');</script>
     <script src="tests.js"></script>
     <script>mocha.run();</script>
   </body>
