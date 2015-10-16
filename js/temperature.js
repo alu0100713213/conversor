@@ -60,6 +60,7 @@
   
   exports.Temperatura = Temperatura;
   exports.Celsius = Celsius;
+  exports.Kelvin = Kelvin;
 
   exports.convertir = function(tipo)
   {

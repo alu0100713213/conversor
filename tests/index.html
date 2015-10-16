@@ -8,16 +8,17 @@
   </head>
   <body>
     <div id="mocha"></div>
-    <div id="messages"></div>
-    <div id="fixtures"></div>
-    <script src="../node_modules/mocha/mocha.js"></script>
+    <input id="entrada" placeholder="32F" size="50">
+    <span class="output" id="salida"></span>
     <script src="chai.js"></script>
-    <script src="sinon-1.17.1.js"></script>
-    <script src="blanket.js"
-          data-cover-adapter="mocha-blanket.js"></script>
-    <script src="../js/temperature.js" data-cover></script>
-    <script>mocha.setup('tdd');</script>
+    <!-- <script src=sinon.js></script> -->
+    <script src="mocha.js"></script>
+    <script src="blanket.js" data-cover-adapter="mocha-blanket.js"></script>
+    <script src="../js/temperature.js"></script>
+    <script>mocha.setup('bdd');</script>
     <script src="tests.js"></script>
-    <script>mocha.run();</script>
+    <script>
+      mocha.run();
+    </script>
   </body>
 </html>

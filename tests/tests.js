@@ -1,60 +1,27 @@
-var assert = chai.assert;
+var expect = chai.expect;
 
-suite('temperature', function() {
-    test('Calcular función', function()
-    {
-      valor = "20"
-      aux = new Celsius(valor);
-      assert.ok(aux.convertir, "funciona");
+describe("Pruebas BDD", function() {
+ var aux = document.getElementById("salida");
+  describe("Pruebas constructores", function() {
+    it("Constructor Temperatura", function(){
+      var Temp = new Temperatura("0");
+      Temp.tempValue = 0;
+      expect(Temp.tempValue).to.equal(0);
     });
-
-    test('Celsius a Fahrenheit', function()
-    {
-        var valor = "20";
-        aux = new Celsius(valor);
-        salida.innerHTML = aux.toFahrenheit();
-        assert.equal(salida.innerHTML, "68 Fahrenheit");
+  });
+  describe("Pruebas de conversión", function() {
+    it("20 C to F", function(){
+      var Temp = new Celsius("20");
+      expect(Temp.toFahrenheit()).to.equal("68 Fahrenheit");
     });
-    test('Fahrenheit a Celsius', function()
-    {
-      aux = new Temperatura('F');
-      aux.tempValue = "68.0";
-      salida.innerHTML = aux.convertir('F');
-      assert.deepEqual(salida.innerHTML, '20.0 Celsius')
+    it("20 C to K", function(){
+      var Temp = new Celsius("20");
+      expect(Temp.toKelvin()).to.equal("293.15 Kelvin");
     });
-    test('Fahrenheit a Kelvin', function()
-    {
-      aux = new Temperatura('FK');
-      aux.tempValue = "50.0";
-      salida.innerHTML = aux.convertir('FK');
-      assert.deepEqual(salida.innerHTML, '283.1 Kelvin')
+    it("68 F to C", function(){
+      var Temp = new Fahrenheit("350");
+      expect(Temp.toFahrenheit()).to.equal("20 Celsius");
     });
-    test('Kelvin a Fahrenheit', function()
-    {
-      aux = new Temperatura('KF');
-      aux.tempValue = "20.0";
-      salida.innerHTML = aux.convertir('KF');
-      assert.deepEqual(salida.innerHTML, '-423.7 Fahrenheit')
-    });
-    test('Kelvin a Celsius', function()
-    {
-      aux = new Temperatura('KC');
-      aux.tempValue = "200.0";
-      salida.innerHTML = aux.convertir('KC');
-      assert.deepEqual(salida.innerHTML, '-73.1 Celsius')
-    });
-    test('Celsius a Kelvin', function()
-    {
-      aux = new Temperatura('CK');
-      aux.tempValue = "50.0";
-      salida.innerHTML = aux.convertir('CK');
-      assert.deepEqual(salida.innerHTML, '323.1 Kelvin')
-    });
-    test('error', function()
-   	{
-    	aux = new Temperatura('C');
-    	aux.value = 32;
-      salida.innerHTML = aux.convertir('C');
-      sinon.assert.calledWith(spy, sinon.match.has("89.6 Fahrenheit", salida.innerHTML));
-    });
+  });
+  
 });
