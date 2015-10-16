@@ -37,7 +37,8 @@
     }
     this.toKelvin = function()
     {
-      var ext = valor + 273.15;
+      var ext1 = (valor - 32)/1.8;
+      var ext = ext1 + 273.15;
       return ext + " Kelvin";
     }
   }
@@ -61,7 +62,8 @@
   exports.Temperatura = Temperatura;
   exports.Celsius = Celsius;
   exports.Kelvin = Kelvin;
-
+  exports.Fahrenheit = Fahrenheit;
+  
   exports.convertir = function(tipo)
   {
     var valor     = document.getElementById('temp').value;
@@ -77,6 +79,10 @@
         case 'FC':
           var aux = new Fahrenheit(valor);
           resultado.innerHTML = aux.toCelsius();
+          break;
+        case 'FK':
+          var aux = new Fahrenheit(valor);
+          resultado.innerHTML = aux.toKelvin();
           break;
         case 'CK':
           var aux = new Celsius(valor);
