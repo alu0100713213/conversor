@@ -16,74 +16,81 @@
     Temperatura.call(this, valor);
     this.toFahrenheit = function()
     {
-      var ext1 = (this.valor * 9/5) + 32;
-      return ext1.toFixed(1) + " " + "Fahrenheit";
+      var ext = (valor * 9/5) + 32;
+      return ext + " " + "Fahrenheit";
+    }
+    this.toKelvin = function()
+    {
+      var parse = parseInt(valor);
+      var ext = parse + 273.15;
+      return ext + " Kelvin";
     }
   }
+  
+  function Fahrenheit(valor)
+  {
+    Temperatura.call(this, valor);
+    this.toCelsius = function()
+    {
+      var ext = (valor - 32)/1.8;
+      return ext + " Celsius";
+    }
+    this.toKelvin = function()
+    {
+      var ext = valor + 273.15;
+      return ext + " Kelvin";
+    }
+  }
+  
+  function Kelvin(valor)
+  {
+    Temperatura.call(this, valor);
+    this.toCelsius = function()
+    {
+      var ext = valor - 273.15;
+      return ext + " Celsius";
+    }
+    this.toFahrenheit = function()
+    {
+      var ext = valor - 273.15;
+      var ext1 = (ext*1.8)+32;
+      return ext1 + " Fahrenheit";
+    }
+  }
+  
   exports.Temperatura = Temperatura;
   exports.Celsius = Celsius;
 
   exports.convertir = function(tipo)
   {
     var valor     = document.getElementById('temp').value;
-    var resultado  = document.getElementById('prueba');
+    var resultado  = document.getElementById('divsalida');
     if(valor)
     {
       switch (tipo)
       {
-        case 'C':
+        case 'CF':
           var aux = new Celsius(valor);
-          resultado.innerHTML = aux.toFahrenheit().toFixed(1) + " Farenheit";
+          resultado.innerHTML = aux.toFahrenheit();
+          break;
+        case 'FC':
+          var aux = new Fahrenheit(valor);
+          resultado.innerHTML = aux.toCelsius();
+          break;
+        case 'CK':
+          var aux = new Celsius(valor);
+          resultado.innerHTML = aux.toKelvin();
+          break;
+        case 'KC':
+          var aux = new Kelvin(valor);
+          resultado.innerHTML = aux.toCelsius();
+          break;
+        case 'KF':
+          var aux = new Kelvin(valor);
+          resultado.innerHTML = aux.toFahrenheit();
           break;
       }
     }
   }
 
 })(this);
-
-
-  /**
-  Temperatura.prototype = new Medida();
-  Temperatura.prototype.constructor = Temperatura;
-  Temperatura.prototype.convertir = function(converter){
-    if (converter == 'F'){
-      ext2 = parseInt(this.tempValue);
-      ext1 = (ext2 - 32)/1.8;
-      return ext1.toFixed(1) + " " + "Celsius";
-    }
-    else if (converter == 'C'){
-      ext2 = parseInt(this.tempValue);
-      ext1 = ((ext2*1.8)+32)
-      return ext1.toFixed(1) + " " + "Fahrenheit";
-    }
-    else if (converter == 'CK'){
-      ext2 = parseInt(this.tempValue);
-      ext1 = ext2 + 273.15;
-      return ext1.toFixed(1) + " " + "Kelvin";
-    }
-    else if (converter == 'KC'){
-      ext2 = parseInt(this.tempValue);
-      ext1 = ext2 - 273.15;
-      return ext1.toFixed(1) + " " + "Celsius";
-    }
-    else if (converter == 'FK'){
-      ext2 = parseInt(this.tempValue);
-      ext1 = (ext2 - 32)*5/9;
-      ext3 = ext1 + 273.15;
-      return ext3.toFixed(1) + " " + "Kelvin";
-    }
-    else if (converter == 'KF'){
-      ext2 = parseInt(this.tempValue);
-      ext1 = ext2 - 273.15;
-      ext3 = ((ext1*1.8)+ 32);
-      return ext3.toFixed(1) + " " + "Fahrenheit";
-    }
-  };
-
-  function resultadohtml(converter){
-    entrada = document.getElementById("temp").value;
-    Temp = new Temperatura(entrada);
-    divsalida.innerHTML = Temp.convertir(converter);
-  };
-})(this);
-*/
