@@ -1,12 +1,7 @@
 (function(exports) {
   "use strict";
 
-  function Medida(data_)
-  {
-    this.data = data_;
-  };
-
-  function Temperatura(tempValue)
+   function Temperatura(tempValue)
   {
     Medida.call(this, tempValue);
   };
@@ -16,7 +11,7 @@
     Temperatura.call(this, valor);
     this.toFahrenheit = function()
     {
-      ext1 = (this.valor * 9/5) + 32;
+      var ext1 = (this.valor * 9/5) + 32;
       return ext1.toFixed(1) + " " + "Fahrenheit";
     }
   }
@@ -27,17 +22,21 @@
   {
     var valor     = document.getElementById('temp').value;
     var resultado  = document.getElementById('divsalida');
-
+    if(valor)
+    {
       switch (tipo)
       {
         case 'C':
           var aux = new Celsius(valor);
-          divsalida.innerHTML = aux.toFahrenheit().toFixed(1) + " Farenheit";
+          var divsalida.innerHTML = aux.toFahrenheit().toFixed(1) + " Farenheit";
           break;
       }
     }
+  }
 
 })(this);
+
+
   /**
   Temperatura.prototype = new Medida();
   Temperatura.prototype.constructor = Temperatura;
