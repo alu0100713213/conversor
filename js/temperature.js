@@ -1,7 +1,12 @@
 (function(exports) {
   "use strict";
 
-   function Temperatura(tempValue)
+  function Medida(data_)
+  {
+    this.data = data_;
+  };
+
+  function Temperatura(tempValue)
   {
     Medida.call(this, tempValue);
   };
@@ -21,14 +26,14 @@
   exports.convertir = function(tipo)
   {
     var valor     = document.getElementById('temp').value;
-    var resultado  = document.getElementById('divsalida');
+    var resultado  = document.getElementById('prueba');
     if(valor)
     {
       switch (tipo)
       {
         case 'C':
           var aux = new Celsius(valor);
-          var divsalida.innerHTML = aux.toFahrenheit().toFixed(1) + " Farenheit";
+          resultado.innerHTML = aux.toFahrenheit().toFixed(1) + " Farenheit";
           break;
       }
     }
