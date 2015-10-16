@@ -1,6 +1,22 @@
 var expect = chai.expect;
 
 describe("Pruebas BDD", function() {
+  var sandbox;
+
+  beforeEach(function() {
+    // create a sandbox
+    sandbox = sinon.sandbox.create();
+
+    // stub some console methods
+    sandbox.stub(window.console, "log");
+    sandbox.stub(window.console, "error");
+  });
+
+  afterEach(function() {
+    // restore the environment as it was before
+    sandbox.restore();
+  });
+  
  var aux = document.getElementById("salida");
   describe("Pruebas constructores", function() {
     it("Constructor Temperatura", function(){
