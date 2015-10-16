@@ -1,18 +1,44 @@
-var assert = chai.assert;
+var expect = chai.expect,
+  should = chai.should();
+  
+describe("Conversor de Temperatura", function() {
+  var barra_;
+  beforeEach(function() {
+    barra_ = sinon.barra_.create();
+    barra_.stub(window.console, "log");
+    barra_.stub(window.console, "error");
+  });
+  
+  afterEach(function() {
+    barra_.restore();
+  });
+  
+  describe("Constructor", function() {
+    
+    it("Función temperatura", function() {
+        var temperatura = new Temperatura();
+        expect(temperatura.tempValue).to.equal(0);
+    });
+  });
+  
+});
+/**
+ * var assert = chai.assert;
 
 suite('temperature', function() {
     test('Calcular función', function()
     {
-      aux = new Temperatura();
+      valor = "20"
+      aux = new Celsius(valor);
       assert.ok(aux.convertir, "funciona");
     });
 
     test('Celsius a Fahrenheit', function()
     {
-        aux = new Temperatura('C');
-        aux.tempValue = "20";
-        salida.innerHTML = aux.convertir('C');
-        assert.equal(salida.innerHTML, "68.0 Fahrenheit");
+        var valor = "20";
+        aux = new Celsius(valor);
+        salida.innerHTML = aux.toFahrenheit();
+        assert.equal(salida.innerHTML, "68 Fahrenheit");
     });
     test('Fahrenheit a Celsius', function()
     {
@@ -57,3 +83,4 @@ suite('temperature', function() {
       sinon.assert.calledWith(spy, sinon.match.has("89.6 Fahrenheit", salida.innerHTML));
     });
 });
+*/
