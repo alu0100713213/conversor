@@ -4,10 +4,7 @@ describe("Pruebas BDD", function() {
   var sandbox;
 
   beforeEach(function() {
-    // create a sandbox
     sandbox = sinon.sandbox.create();
-
-    // stub some console methods
     sandbox.stub(window.console, "log");
     sandbox.stub(window.console, "error");
   });
@@ -16,7 +13,7 @@ describe("Pruebas BDD", function() {
     // restore the environment as it was before
     sandbox.restore();
   });
-  
+
  var aux = document.getElementById("salida");
   describe("Pruebas constructores", function() {
     it("Constructor Temperatura", function(){
@@ -45,11 +42,11 @@ describe("Pruebas BDD", function() {
     it("350 K to C", function(){
       var Temp = new Kelvin("350");
       expect(Temp.toCelsius()).to.equal("76.85000000000002 Celsius");
-    });    
+    });
     it("350 K to F", function(){
       var Temp = new Kelvin("350");
       expect(Temp.toFahrenheit()).to.equal("170.33000000000004 Fahrenheit");
-    });   
+    });
   });
-  
+
 });

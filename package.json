@@ -2,9 +2,9 @@
   "name": "prc2",
   "version": "0.0.0",
   "description": "<h1>Práctica 2 : Conversor de Temperatura<h/1>\r <p> Lenguaje y paradigmas de la programación</p>",
-  "main": "gulpfile.js",
+  "main": "js/temperature.js",
   "directories": {
-    "test": "tests"
+    "test": "node static-server"
   },
   "dependencies": {
     "gulp": "~3.9.0",
@@ -18,7 +18,9 @@
   },
   "devDependencies": {
     "blanket": "~1.1.7",
+    "del": "^2.0.2",
     "chai": "^3.3.0",
+    "blanket-node": "^2.0.0",
     "mocha": "~2.3.3",
     "sinon": "~1.17.1"
   },
