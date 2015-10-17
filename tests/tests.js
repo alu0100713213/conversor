@@ -15,14 +15,11 @@ describe("Pruebas BDD", function() {
   });
 
  var aux = document.getElementById("salida");
-  describe("Pruebas constructores", function() {
     it("Constructor Temperatura", function(){
       var Temp = new Temperatura("0");
       Temp.tempValue = 0;
       expect(Temp.tempValue).to.equal(0);
     });
-  });
-  describe("Pruebas de conversión", function() {
     it("20 C to F", function(){
       var Temp = new Celsius("20");
       expect(Temp.toFahrenheit()).to.equal("68 Fahrenheit");
@@ -47,6 +44,5 @@ describe("Pruebas BDD", function() {
       var Temp = new Kelvin("350");
       expect(Temp.toFahrenheit()).to.equal("170.33000000000004 Fahrenheit");
     });
-  });
 
 });
