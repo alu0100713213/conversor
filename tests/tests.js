@@ -1,6 +1,5 @@
 var expect = chai.expect;
 
-describe("Pruebas BDD", function() {
   var sandbox;
 
   beforeEach(function() {
@@ -45,4 +44,3 @@ describe("Pruebas BDD", function() {
       expect(Temp.toFahrenheit()).to.equal("170.33000000000004 Fahrenheit");
     });
 
-});
