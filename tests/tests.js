@@ -1,5 +1,4 @@
 var expect = chai.expect;
-describe("Conversor Temperatura", function() {
 
     describe("Conversor Temperatura", function() {
   var sandbox;
