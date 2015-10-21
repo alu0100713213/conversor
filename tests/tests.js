@@ -1,6 +1,5 @@
 var expect = chai.expect;
 
-    describe("Conversor Temperatura", function() {
   var sandbox;
 
   beforeEach(function() {
@@ -44,4 +43,4 @@ var expect = chai.expect;
       var Temp = new Kelvin("350");
       expect(Temp.toFahrenheit()).to.equal("170.33000000000004 Fahrenheit");
     });
-  });
+
